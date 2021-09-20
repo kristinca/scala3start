@@ -1,3 +1,4 @@
+import scala.collection.immutable.IntMap.Nil.find
 import scala.io.Codec.fallbackSystemCodec.name
 
 // this is scala 3.0.2 ^^
@@ -57,6 +58,7 @@ class exists(name: String) {
 //Scala has two kinds of variables:
 //-> vals: once initialized can NEVER be reassigned
 //-> vars: can be reassigned
+
 
 val msg  = "This is a msg"
 val msg2 = "This is another msg"
@@ -167,3 +169,98 @@ object Demo4 {
     }
   }
 }
+
+//no goto, no break, no continue, no semicolons
+//every expression computes to a value
+//every value has a type
+// there are no operators -> only method calls
+
+//a class is an istance of a class,
+// is also a constructor of the object
+
+// val, var, def, lazy val, type
+
+val const =
+  println("This is a constant value...\n")
+  64154
+
+println(const)
+
+var nonconst =
+  println("This is a variable and CAN BE CHANGED..\n")
+  215412
+println(nonconst)
+//nonconst = 85345
+//println(nonconst)
+
+def square(a: Int): Int =
+  a * a
+
+square(10)
+
+square(2-5)
+
+lazy val ex1 =
+  println("We're seeing them ONLY when we're using them")
+
+println("A lazy val".length)
+//nothing has 0 values
+val novalue: Nothing = throw new Exception
+
+println("Something")
+// unit has 1 value
+val unit1: Unit = ()
+
+println(unit1)
+//null has 1 value
+val hellonull: Null = null
+
+//Booleans
+val oui: Boolean = true
+println(oui)
+
+//numeric types:
+// Byte, Short, Int, Long, Float, Double
+
+val bytemini: Byte = Byte.MinValue
+val bytemax: Byte = Byte.MaxValue
+print(bytemini, bytemax)
+
+//hexadecimal
+val c1 = 0x1C
+println(c1)
+
+val c2 = -1e2
+
+//Strings
+val c3 = "This is a string"
+println(c3+'.')
+
+println(""" This is a string too """)
+
+//string formatting -> s"input string here $val_name "
+println(s"Yet another string ${c2+5}. $c3")
+
+//if contitions return a val, ofc
+
+var a = 1
+var b = 1
+var c = 2
+
+// if conditions
+if (a+b > c ) then
+  println(s"a + b > c : $a + $b > $c")
+else if (a+c > b) then
+  println(s"a + c > b : $a + $c > $b")
+else
+  println(a)
+
+// while -> avoid while ofc
+while (a < c+5)
+  println(a)
+  a += 1
+
+// functions
+// partial functions -> NOT defined for every value in the type
+
+val A = List(1,2,5,10,2)
