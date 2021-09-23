@@ -1,11 +1,12 @@
-import scala.collection.immutable.IntMap.Nil.find
+
 import scala.io.Codec.fallbackSystemCodec.name
 
 // this is scala 3.0.2 ^^
 
 // My work and notes from the book "Programming in Scala"
-//by Martin Odersky, Lex Spoon, and Bill Venners
-//and other random web examples :D
+// by Martin Odersky, Lex Spoon, and Bill Venners
+// && Effective Programming in Scala
+// && other random web examples :D
 
 //An integer that can become arbitrarily large
 // without overflow or "wrap-around" of arithmetic operations
@@ -264,3 +265,103 @@ while (a < c+5)
 // partial functions -> NOT defined for every value in the type
 
 val A = List(1,2,5,10,2)
+
+// Iterable
+
+object Main
+def main(args: Array[String]): Unit =
+{
+  println(Iterable(6,5,6))
+  println(Seq(3,3,2))
+}
+
+//Iterable have dynamic size
+//sequences -> immutable; ordered collections
+//sets -> unordered; unique elements
+//maps -> sets of keys and associated values
+// like dictionaries python huh?
+
+// Lists
+
+/*case class AddressBook (contacts: List[String]):
+  case class Contact {
+    name: String
+    email: String
+    phone numbers: List[String]
+  }
+
+// we can nest list in list:
+// ex. List[List[Int]]
+
+val matjaz = Contact("Matjaz", "matjaz@neki.si", List())
+val mojca = Contact("Mojca", "mojca@neki.si", List("+123456789"))
+val AddresBook(List(matjaz,mojca))
+
+// list size -> .size -> returns Int
+val numberofcontacts: Int = AddressBook.contacts.size
+
+// specific element -> .contains ->returns Boolean
+val isMojcaInContacts = AddressBook.contains(mojca)
+
+// transforming a list -> getting a list out of a list
+// .map -> returns a list of elements
+AddressBook.contacts.map(contact => name)
+
+// .filter -> returns someth specific
+AddressBook.contacts.filter(contact => contact.phoneNumbers.nonEmpty)
+*/
+// .apply method
+
+// match .... case _ means all other not possible cases
+
+// index of a list aaa YEEEYYYY THIS IS IIIITTT AAAA :D
+val fruits = List("apples","oranges","pears")
+
+fruits.head == "apples"
+fruits.tail.head == "oranges"
+fruits.tail == List("pears", "oranges")
+fruits(0) == "apples"
+fruits(2) == "oranges"
+
+// methods on list vs complexity
+// ::   Constant time
+// head    Constant time
+// tail    Constant time
+// Random access   Linear time
+// size     Linear time
+
+// Collections :
+// List is an immutable sequence
+// ArrayBuffer is a mutable sequence
+// Map is a immutable dictionary
+import scala.collection.mutable
+
+List.empty[Int]
+mutable.ArrayBuffer.empty[Double]
+Map.empty[String, Boolean]
+//the first type : string is the key type,
+// boolean is the value type
+
+// +:  adds an element to the front of the list
+// :+  adds an element to the tail of the list
+// in map we add w/ +
+// find returns the FIRST ELEMENT that maches a predicate
+// filter returns ALL OF THE ELEMENTS that match a predicate
+// isEmpty , nonEmpty
+// contains
+
+// flatMap  to change the number of elements in a collections
+// map and flatMap return collection as a result
+// foldLeft transforms a collection to any other type
+// GroupBy groups the elements of a collection ...
+// ... acording to a partition function
+// sortBy to sort a sequence
+
+// Option[String]
+
+
+// Loops
+// for (s) yield e
+// for (x <- e1 if f; s) yield e2
+// for (x <- e1.withFilter(x => f); s) yield e2
+// e1.foreach(x =>) does not return a new collection
