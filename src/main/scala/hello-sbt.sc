@@ -1,4 +1,4 @@
-package hellosbt
+
 
 val greeting = "Hello, sbt! ^^"
 
